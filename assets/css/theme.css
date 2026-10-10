@@ -1271,3 +1271,17 @@ ul {
   z-index: 1;
 }
 
+/*-----------------------------------------------
+|   User Styles
+-----------------------------------------------*/
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
