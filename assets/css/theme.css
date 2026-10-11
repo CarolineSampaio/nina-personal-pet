@@ -1271,6 +1271,22 @@ ul {
   z-index: 1;
 }
 
+/* -------------------------------------------------------------------------- */
+/*        Navbar & Hero                                                       */
+/* -------------------------------------------------------------------------- */
+.backdrop {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.navbar {
+  -webkit-transition: padding 0.3s linear;
+  -o-transition: padding 0.3s linear;
+  transition: padding 0.3s linear;
+}
+
+.padding-transition {
+  padding: 1.25rem !important;
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/
@@ -1283,5 +1299,53 @@ html, body {
   position: relative;
   overflow: hidden;
   width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .navbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-collapse {
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Logo responsivo */
+.navbar-logo,
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+@media (min-width: 701px) {
+  .navbar-logo,
+  .navbar-brand img {
+    height: 70px;
+  }
+}
+
+/* Navbar de computador (Fundo Amarelo + Barra Branca nos Nav Items no Hover) */
+@media (min-width: 700px) {
+
+  /* Padrão do Nav Link (sem borda visível por padrão) */
+  .navbar .navbar-nav .nav-item .nav-link {
+    border-bottom: 3px solid transparent !important;
+    padding-bottom: 4px !important;
+    transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  /* Barra branca surge APENAS no HOVER ou item ativo */
+  .navbar .navbar-nav .nav-item .nav-link:hover,
+  .navbar .navbar-nav .nav-item .nav-link.active {
+    border-bottom-color: #6b4535 !important;
+    color: #6b4535 !important;
+  }
 }
 
