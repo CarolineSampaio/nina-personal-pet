@@ -1287,6 +1287,87 @@ ul {
 
 .padding-transition {
   padding: 1.25rem !important;
+}
+
+.hero-title {
+  font-family: "Volkhov", "DM Serif Display", cursive;
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: #181E4B;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 4.62363rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-title {
+    font-size: 5.20158rem;
+  }
+}
+
+.hero-title:before {
+  content: '';
+  position: absolute;
+  right: -0.9375rem;
+  top: 10rem;
+  width: 20rem;
+  height: 0.8125rem;
+  background-image: url(../img/hero/shape.svg);
+  background-size: contain;
+  z-index: -1;
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero-title:before {
+    right: 3rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hero-title:before {
+    right: 8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title:before {
+    font-size: 4.62363rem;
+    top: 16rem;
+    right: -0.9375rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-title:before {
+    font-size: 5.20158rem;
+    top: 18rem;
+    width: 23.125rem;
+  }
+}
+
+.hero-img {
+  width: 105%;
+  margin-left: -5rem;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-img {
+    width: 135%;
+    margin-left: -4rem;
+  }
+}
+
+.hero-subtitle {
+  margin-top: 2rem !important;
+}
+
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/
@@ -1346,6 +1427,57 @@ html, body {
   .navbar .navbar-nav .nav-item .nav-link.active {
     border-bottom-color: #6b4535 !important;
     color: #6b4535 !important;
+  }
+}
+
+/* Fundo da Hero (hero-bg.svg): mantém o padrão original até 1600px, e acima de 1600px evita o corte da curva inferior */
+@media (min-width: 1901px) {
+  section#inicio .bg-holder,
+  section:first-of-type .bg-holder {
+    background-size: auto 100% !important;
+    background-position: top right !important;
+    background-repeat: no-repeat !important;
+  }
+  
+  .hero-img {
+    margin-left: 10rem;
+  }
+}
+
+.text-yellow {
+  color: var(--yellow) !important;
+}
+
+.text-blue {
+  color: var(--blue) !important;
+}
+
+/* Efeito hover sutil para o badge de texto do Google */
+.hover-opacity {
+  transition: opacity 0.2s ease;
+}
+.hover-opacity:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 767.98px) {
+  /* Centraliza a imagem da Hero perfeitamente no mobile */
+  .hero-img {
+    max-width: 380px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
+  }
+}
+
+/* Fundo da Hero responsivo: hero-bg-mob.svg no mobile e hero-bg.svg no desktop */
+.hero-bg-responsive {
+  background-image: url(../img/hero/hero-bg-mob.svg) !important;
+}
+
+@media (min-width: 768px) {
+  .hero-bg-responsive {
+    background-image: url(../img/hero/hero-bg.svg) !important;
   }
 }
 
