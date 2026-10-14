@@ -1467,7 +1467,7 @@ html, body {
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  z-index: 2;
+  z-index: 3;
 }
 .brush-divider svg {
   position: relative;
@@ -1536,45 +1536,66 @@ html, body {
 
 .nina-indica-section .container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
 /* Imagem Puminha como elemento decorativo de fundo */
 .nina-indica-puminha-bg {
   position: absolute;
-  left: -20px;
-  bottom: 20px;
-  max-width: 320px;
+  right: min(0px, calc((100vw - 1900px) / 2));
+  bottom: -20px;
+  max-width: 360px;
   width: auto;
   height: auto;
   pointer-events: none;
   user-select: none;
-  z-index: 1;
+  z-index: 2;
   transition: all 0.3s ease;
-  transform: scaleX(-1);
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1599.98px) {
   .nina-indica-puminha-bg {
-    left: 2%;
-    max-width: 360px;
-    bottom: 30px;
+    right: -80px;
+    max-width: 270px;
   }
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1200px) and (max-width: 1250px) {
   .nina-indica-puminha-bg {
-    max-width: 240px;
+    right: -85px;
+  }
+}
+
+@media (min-width: 1420px) and (max-width: 1450px) {
+  .nina-indica-puminha-bg {
+    right: -100px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1420px) {
+  .nina-indica-puminha-bg {
+    right: -125px;
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .nina-indica-puminha-bg {
+    right: -65px;
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .nina-indica-puminha-bg {
+    right: -45px;
+    max-width: 200px;
     opacity: 0.45;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .nina-indica-puminha-bg {
-    max-width: 170px;
-    opacity: 0.3;
-    left: -10px;
-    bottom: 15px;
+    display: none;
   }
 }
 
