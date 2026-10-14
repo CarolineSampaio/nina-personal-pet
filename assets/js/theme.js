@@ -322,7 +322,56 @@ var counterInit = function counterInit() {
   });
 };
 
+/* -------------------------------------------------------------------------- */
+/*                                Coupon Copy                                 */
+/* -------------------------------------------------------------------------- */
+var couponInit = function couponInit() {
+  var copyButtons = document.querySelectorAll('.btn-copy-coupon');
+  if (!copyButtons.length) return;
+
+  copyButtons.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var code = btn.getAttribute('data-coupon');
+      if (!code) return;
+
+      var updateButton = function () {
+        var originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        btn.classList.add('copied');
+
+        setTimeout(function () {
+          btn.innerHTML = originalHtml;
+          btn.classList.remove('copied');
+        }, 2200);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(updateButton).catch(function () {
+          // Fallback
+          var tempInput = document.createElement('input');
+          tempInput.value = code;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          updateButton();
+        });
+      } else {
+        var tempInput = document.createElement('input');
+        tempInput.value = code;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        updateButton();
+      }
+    });
+  });
+};
+
 docReady(navbarInit);
 docReady(detectorInit);
 docReady(scrollToTop);
 docReady(counterInit);
+docReady(couponInit);

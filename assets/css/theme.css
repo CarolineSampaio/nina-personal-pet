@@ -1524,3 +1524,326 @@ html, body {
   }
 }
 
+/*-----------------------------------------------
+|   Nina Indica - Section Styles & Colagens
+-----------------------------------------------*/
+.nina-indica-section {
+  background-color: var(--yellow, #FECA36);
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 0 7rem 0;
+}
+
+.nina-indica-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Imagem Puminha como elemento decorativo de fundo */
+.nina-indica-puminha-bg {
+  position: absolute;
+  left: -20px;
+  bottom: 20px;
+  max-width: 320px;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+  transform: scaleX(-1);
+}
+
+@media (min-width: 1400px) {
+  .nina-indica-puminha-bg {
+    left: 2%;
+    max-width: 360px;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .nina-indica-puminha-bg {
+    max-width: 240px;
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 767px) {
+  .nina-indica-puminha-bg {
+    max-width: 170px;
+    opacity: 0.3;
+    left: -10px;
+    bottom: 15px;
+  }
+}
+
+.nina-indica-header .subtitle {
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #14183E;
+  opacity: 0.85;
+}
+
+.nina-indica-header .title {
+  color: #14183E;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nina-indica-header .description {
+  color: #3D405B;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* OPÇÃO 1: Sticker, Polaroid & Scrapbook Collage */
+.scrapbook-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem 1.6rem 1.6rem 1.6rem;
+  box-shadow: none;
+  position: relative;
+  border: 3px solid #14183E;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scrapbook-card:hover {
+  transform: translateY(-8px) rotate(0deg) !important;
+  box-shadow: 0 20px 42px rgba(20, 24, 62, 0.16);
+}
+
+.scrapbook-card.tilt-left {
+  transform: rotate(-2deg);
+}
+
+.scrapbook-card.tilt-right {
+  transform: rotate(2deg);
+}
+
+.scrapbook-card.tilt-center {
+  transform: rotate(0.5deg);
+}
+
+.scrapbook-card.blue-border {
+  border-color: var(--blue, #318ab7);
+  box-shadow: none;
+}
+
+.scrapbook-card.blue-border:hover {
+  box-shadow: 0 20px 42px rgba(49, 138, 183, 0.28);
+}
+
+/* Logos oficiais das marcas nos cards */
+.brand-logo-indica {
+  height: 38px;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Fita Adesiva / Washi Tape decorativa */
+.washi-tape {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px dashed rgba(20, 24, 62, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Selo Starburst / Círculo com Pontas */
+.starburst-badge {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  width: 62px;
+  height: 62px;
+  background: #E63946;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 6px 16px rgba(230, 57, 70, 0.45);
+  border-radius: 50%;
+  clip-path: polygon(50% 0%, 63% 15%, 81% 9%, 82% 28%, 100% 35%, 91% 50%, 100% 65%, 82% 72%, 81% 91%, 63% 85%, 50% 100%, 37% 85%, 19% 91%, 18% 72%, 0% 65%, 9% 50%, 0% 35%, 18% 28%, 19% 9%, 37% 15%);
+  transform: rotate(6deg);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 4;
+}
+
+.scrapbook-card:hover .starburst-badge {
+  transform: rotate(12deg) scale(1.08);
+}
+
+.starburst-badge span {
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.starburst-badge.blue {
+  background: var(--blue, #318ab7);
+  box-shadow: 0 6px 16px rgba(49, 138, 183, 0.45);
+}
+
+.starburst-badge.shopee {
+  background: #EE4D2D;
+  box-shadow: 0 6px 16px rgba(238, 77, 45, 0.45);
+  font-size: 0.72rem;
+  letter-spacing: -0.2px;
+}
+
+/* Versão Ampliada do Selo Starburst */
+.starburst-badge.lg {
+  width: 82px;
+  height: 82px;
+  top: -24px;
+  right: -20px;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.55);
+}
+
+.starburst-badge.lg span {
+  font-size: 0.76rem;
+  letter-spacing: 0.5px;
+}
+
+.starburst-badge.lg.blue {
+  background: var(--blue, #318ab7);
+  box-shadow: 0 8px 24px rgba(49, 138, 183, 0.55);
+}
+
+.starburst-badge.lg.shopee {
+  background: #EE4D2D;
+  box-shadow: 0 8px 24px rgba(238, 77, 45, 0.55);
+  font-size: 0.82rem;
+  padding: 4px 6px;
+}
+
+.starburst-badge.lg.shopee span {
+  font-size: 0.64rem;
+  letter-spacing: 0.4px;
+  margin-top: 2px;
+}
+
+/* Header do Card com espaçamento para o selo starburst */
+.scrapbook-card-header {
+  padding-right: 42px;
+  margin-bottom: 8px;
+}
+
+/* Badge em formato de Osso de Cachorro */
+.bone-badge {
+  background: #FFF7D6;
+  border: 2px dashed #E5A800;
+  border-radius: 30px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #14183E;
+  font-size: 0.88rem;
+  margin: 4px 0 12px 0;
+}
+
+.bone-badge i {
+  color: #E5A800;
+}
+
+/* Caixa de Cupom Picotada com Botão Copiar */
+.coupon-box {
+  background: #F5F9FC;
+  border: 2px dashed var(--blue, #318ab7);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  transition: all 0.25s ease;
+}
+
+.coupon-box:hover {
+  background: #FFFDEB;
+  border-color: var(--yellow, #FECA36);
+}
+
+.coupon-code {
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #14183E;
+}
+
+.btn-copy-coupon {
+  background: var(--blue, #318ab7);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(49, 138, 183, 0.25);
+}
+
+.btn-copy-coupon:hover {
+  background: var(--yellow, #FECA36);
+  color: #14183E;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(254, 202, 54, 0.45);
+}
+
+.btn-copy-coupon.copied {
+  background: var(--blue, #318ab7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(49, 138, 183, 0.4) !important;
+}
+
+/* Botão Shopee Achadinhos */
+.btn-shopee-achadinhos {
+  background: #EE4D2D;
+  color: #ffffff !important;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(238, 77, 45, 0.35);
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.btn-shopee-achadinhos:hover {
+  background: #D73211;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(238, 77, 45, 0.45);
+}
+
