@@ -282,6 +282,47 @@ var scrollToTop = function scrollToTop() {
 // /* -------------------------------------------------------------------------- */
 
 
+/*-----------------------------------------------
+|   Animated Counters
+-----------------------------------------------*/
+var counterInit = function counterInit() {
+  var counters = document.querySelectorAll('.counter-number');
+  if (!counters.length) return;
+
+  var animateCounter = function animateCounter(counter) {
+    var target = +counter.getAttribute('data-target');
+    var duration = 3000;
+    var stepTime = 20;
+    var steps = duration / stepTime;
+    var increment = target / steps;
+    var current = 0;
+
+    var timer = setInterval(function () {
+      current += increment;
+      if (current >= target) {
+        counter.innerText = target.toLocaleString('pt-BR');
+        clearInterval(timer);
+      } else {
+        counter.innerText = Math.floor(current).toLocaleString('pt-BR');
+      }
+    }, stepTime);
+  };
+
+  var observer = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(function (counter) {
+    observer.observe(counter);
+  });
+};
+
 docReady(navbarInit);
 docReady(detectorInit);
 docReady(scrollToTop);
+docReady(counterInit);

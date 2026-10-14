@@ -1460,6 +1460,49 @@ html, body {
   opacity: 0.75;
 }
 
+/* Estilos dos Divisores em Pincelada Orgânica (Topo e Base) */
+.brush-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+.brush-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 45px;
+}
+@media (min-width: 768px) {
+  .brush-divider svg {
+    height: 70px;
+  }
+}
+@media (min-width: 1200px) {
+  .brush-divider svg {
+    height: 90px;
+  }
+}
+
+.brush-divider-top {
+  top: -2px;
+}
+.brush-divider-bottom {
+  bottom: -2px;
+}
+
+/* Estilos dos Contadores Animados (Seção Sobre) */
+.counter-section {
+  background-color: var(--blue);
+}
+.counter-block {
+  padding: 1rem 0.5rem;
+}
+.counter-icon-wrap {
+  opacity: 0.9;
+}
 @media (max-width: 767.98px) {
   /* Centraliza a imagem da Hero perfeitamente no mobile */
   .hero-img {
