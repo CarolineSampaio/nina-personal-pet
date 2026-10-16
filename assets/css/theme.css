@@ -1525,6 +1525,99 @@ html, body {
 }
 
 /*-----------------------------------------------
+|   FAQ Styles
+-----------------------------------------------*/
+.faq-section {
+  position: relative;
+}
+
+.faq-card {
+  background: #ffffff;
+  border: 1px solid #EBEBEB;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+}
+
+.faq-card:hover {
+  border-color: rgba(49, 138, 183, 0.35);
+  box-shadow: 0 8px 24px rgba(49, 138, 183, 0.08);
+}
+
+.faq-header {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+}
+
+.faq-header:focus {
+  outline: none;
+}
+
+.faq-question {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #14183E;
+  margin: 0;
+  padding-right: 1rem;
+  transition: color 0.2s ease;
+}
+
+.faq-card:hover .faq-question,
+.faq-header:not(.collapsed) .faq-question {
+  color: var(--blue, #318ab7);
+}
+
+.faq-icon-wrap {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  background-color: #F7F9FC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5E6282;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.faq-header:not(.collapsed) .faq-icon-wrap {
+  background-color: var(--yellow, #FECA36);
+  color: #14183E;
+  transform: rotate(180deg);
+}
+
+.faq-body {
+  padding: 0 1.5rem 1.35rem 1.5rem;
+  color: #5E6282;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.faq-body ul {
+  margin-bottom: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.faq-body li {
+  margin-bottom: 0.35rem;
+}
+
+.faq-body p:last-child {
+  margin-bottom: 0;
+}
+
+/*-----------------------------------------------
 |   Map & Location Section Styles
 -----------------------------------------------*/
 .map-container-card {
