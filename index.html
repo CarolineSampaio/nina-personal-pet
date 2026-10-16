@@ -15,6 +15,9 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -321,6 +324,107 @@
         </section>
         <!-- <section> close ============================-->
         <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-6 py-lg-8 position-relative" id="localizacao">
+            <div class="container">
+                <div class="row align-items-center g-4 g-lg-5">
+                    <!-- Coluna de Informações e Bairros -->
+                    <div class="col-lg-5 text-center text-lg-start">
+                        <h5 class="text-secondary text-uppercase mb-2"
+                            style="letter-spacing: 1.5px; font-size: 0.95rem;">
+                            Onde a Nina Atende
+                        </h5>
+                        <h3 class="fs-xl-9 fs-lg-7 fs-6 fw-bold font-cursive text-capitalize text-dark mb-3">
+                            Localização
+                        </h3>
+                        <p class="text-secondary fs--1 mb-4" style="line-height: 1.7;">
+                            Atendimento com carinho e dedicação na <strong>Região Central e Zona Leste de São
+                                Paulo</strong>.
+                        </p>
+
+                        <!-- Pílulas de Bairros Principais -->
+                        <div class="mb-4">
+                            <h6 class="fs--1 fw-bold text-dark mb-3 text-uppercase" style="letter-spacing: 0.5px;">
+                                Principais Bairros Atendidos:</h6>
+                            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i> Mooca</span>
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i> Belém</span>
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i>
+                                    Ipiranga</span>
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i> Brás &amp;
+                                    Pari</span>
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i> Tatuapé</span>
+                                <span class="neighborhood-pill"><i class="fas fa-map-marker-alt"></i> Cambuci</span>
+                            </div>
+                        </div>
+
+                        <!-- Card de Consulta de CEP / WhatsApp (Apenas Desktop >= 992px) -->
+                        <div class="d-none d-lg-block">
+                            <div
+                                class="p-3 p-md-4 rounded-3 border bg-light d-flex flex-column flex-sm-row align-items-center gap-3 text-start">
+                                <div class="rounded-circle p-3 bg-white shadow-sm text-center"
+                                    style="width: 48px; height: 48px; min-width: 48px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-home fs-1" style="color: var(--blue, #318ab7);"></i>
+                                </div>
+                                <div class="flex-grow-1 text-center text-sm-start">
+                                    <h6 class="mb-1 fs--1 fw-bold text-dark">Mora em um bairro próximo?</h6>
+                                    <p class="mb-0 fs--2 text-secondary">Consulte a disponibilidade para o seu
+                                        endereço.</p>
+                                </div>
+                                <div>
+                                    <a class="btn btn-warning btn-sm text-nowrap fw-semibold px-3 py-2"
+                                        style="background-color: var(--yellow, #FECA36); border: none; color: #14183E; border-radius: 50px;"
+                                        href="http://wa.me/5511994285537?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20se%20voc%C3%AA%20atende%20na%20minha%20regi%C3%A3o!"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-whatsapp me-1"></i> Consultar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna do Mapa Interativo com Raio -->
+                    <div class="col-lg-7">
+                        <div class="map-container-card">
+                            <div class="map-badge-overlay">
+                                <i class="fas fa-paw"></i> Raio de Atendimento Ativo
+                            </div>
+                            <div id="map"></div>
+                        </div>
+
+                        <!-- Card de Consulta de CEP / WhatsApp (Apenas Mobile/Tablet < 992px - Sempre na mesma largura do mapa) -->
+                        <div class="d-block d-lg-none mt-4">
+                            <div
+                                class="p-3 p-sm-4 rounded-3 border bg-light d-flex flex-column flex-sm-row align-items-center gap-3 text-center text-sm-start w-100">
+                                <div class="rounded-circle p-3 bg-white shadow-sm text-center"
+                                    style="width: 48px; height: 48px; min-width: 48px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-home fs-1" style="color: var(--blue, #318ab7);"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fs--1 fw-bold text-dark">Mora em um bairro próximo?</h6>
+                                    <p class="mb-0 fs--2 text-secondary">Consulte a disponibilidade para o seu
+                                        endereço.
+                                    </p>
+                                </div>
+                                <div>
+                                    <a class="btn btn-warning btn-sm text-nowrap fw-semibold px-4 py-2"
+                                        style="background-color: var(--yellow, #FECA36); border: none; color: #14183E; border-radius: 50px;"
+                                        href="http://wa.me/5511994285537?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20se%20voc%C3%AA%20atende%20na%20minha%20regi%C3%A3o!"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-whatsapp me-1"></i> Consultar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of .container-->
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+        <!-- ============================================-->
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
@@ -334,6 +438,14 @@
     <script src="vendors/is/is.min.js"></script>
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="assets/js/theme.js"></script>
+
+    <!-- Leaflet JS, MapLibre GL & Map Script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/leaflet-map.js"></script>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
