@@ -370,8 +370,66 @@ var couponInit = function couponInit() {
   });
 };
 
+/* -------------------------------------------------------------------------- */
+/*                   Veterinary Degree Dynamic Progress                       */
+/* -------------------------------------------------------------------------- */
+var vetProgressInit = function vetProgressInit() {
+  var startDate = new Date(2024, 0, 1).getTime();   // Jan 1, 2024 (início dos 5 anos)
+  var endDate = new Date(2028, 11, 15).getTime();   // Dez 15, 2028 (formatura 12/2028)
+  var now = Date.now();
+
+  var rawPct = ((now - startDate) / (endDate - startDate)) * 100;
+  var clampedPct = Math.max(5, Math.min(100, Math.round(rawPct)));
+
+  var sobreSection = document.getElementById('sobre');
+  if (!sobreSection) return;
+
+  var triggerAnimation = function () {
+    // Preenche barras de 100%
+    document.querySelectorAll('[data-skill-bar]').forEach(function (bar) {
+      var val = bar.getAttribute('data-skill-bar') || '100';
+      bar.style.width = val + '%';
+    });
+
+    // Preenche barras dinâmicas da Veterinária
+    document.querySelectorAll('[data-vet-bar]').forEach(function (bar) {
+      bar.style.width = clampedPct + '%';
+    });
+
+    // Anima números de porcentagem da Veterinária
+    document.querySelectorAll('[data-vet-pct]').forEach(function (el) {
+      var current = 0;
+      var stepTime = 22;
+      var timer = setInterval(function () {
+        current += 1;
+        if (current >= clampedPct) {
+          el.textContent = clampedPct;
+          clearInterval(timer);
+        } else {
+          el.textContent = current;
+        }
+      }, stepTime);
+    });
+  };
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          triggerAnimation();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    obs.observe(sobreSection);
+  } else {
+    triggerAnimation();
+  }
+};
+
 docReady(navbarInit);
 docReady(detectorInit);
 docReady(scrollToTop);
 docReady(counterInit);
 docReady(couponInit);
+docReady(vetProgressInit);

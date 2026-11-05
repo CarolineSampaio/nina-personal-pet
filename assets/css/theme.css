@@ -2179,4 +2179,146 @@ html, body {
   box-shadow: 0 6px 18px rgba(238, 77, 45, 0.45);
 }
 
+/* ==========================================================================
+   SEÇÃO SOBRE A TIA NINA & BARRAS DINÂMICAS
+   ========================================================================== */
+
+.sobre-progress-track {
+  width: 100%;
+  height: 10px;
+  background: #FDF6E2;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sobre-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 50px;
+  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sobre-progress-fill.yellow {
+  background: linear-gradient(90deg, #FECA36 0%, #FFD86B 60%, #FFE89E 100%);
+}
+
+.sobre-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue, #318ab7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sobre-mini-pill {
+  background: #F4F9FC;
+  border: 1px solid rgba(49, 138, 183, 0.18);
+  color: #1E293B;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sobre-opt1-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(254, 202, 54, 0.38);
+  box-shadow: 0 12px 32px rgba(254, 202, 54, 0.08);
+}
+
+.sobre-skill-item {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #FFFDF6;
+  border: 1px solid rgba(254, 202, 54, 0.35);
+}
+
+.sobre-skill-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(254, 202, 54, 0.25);
+  color: #B88200;
+}
+
+/* Efeito combinado: Bolinha pulsante + Onda de luz (Shimmer) + Patinha na ponta */
+.vet-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #D99B00;
+  display: inline-block;
+  animation: vetDotPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes vetDotPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.5; }
+  50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 6px rgba(254, 202, 54, 0.9); }
+}
+
+.sobre-progress-track.track-visible {
+  overflow: visible;
+}
+
+.sobre-progress-fill.fx-paw-tip {
+  position: relative;
+}
+
+.vet-shimmer-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vet-shimmer-layer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  animation: vetShimmerWave 2.2s infinite ease-in-out;
+}
+
+@keyframes vetShimmerWave {
+  0% { left: -60%; }
+  100% { left: 120%; }
+}
+
+.vet-paw-pin {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FECA36;
+  color: #ffffff;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(184, 130, 0, 0.28);
+  animation: vetPawBounce 1.8s infinite ease-in-out;
+  z-index: 2;
+}
+
+@keyframes vetPawBounce {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.15); }
+}
+
 /*# sourceMappingURL=theme.css.map */
