@@ -2180,6 +2180,168 @@ html, body {
 }
 
 /* ==========================================================================
+   SEÇÃO CUIDADOS
+   ========================================================================== */
+
+.care-opt1-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1.5px solid #EEF2F6;
+  box-shadow: 0 12px 32px rgba(20, 24, 62, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.care-opt1-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.care-opt1-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: block;
+}
+
+.care-opt1-duration {
+  background: #F7F9FC;
+  color: #5E6282;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 50px;
+  border: 1px solid #E9EEF5;
+}
+
+.care-opt1-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 575.98px) {
+  .care-opt1-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.care-opt1-item {
+  background: #F9FBFD;
+  border: 1px solid #F0F4F8;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  color: #3D405B;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 500;
+}
+
+.care-opt1-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.care-opt2-link {
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.care-opt2-link:hover {
+  transform: translateX(4px);
+}
+
+.care-card-pet {
+  --care-accent: var(--blue, #318ab7);
+  --care-icon-bg: rgba(49, 138, 183, 0.1);
+  --care-item-icon: var(--blue, #318ab7);
+  --care-hl-bg: rgba(49, 138, 183, 0.06);
+  --care-hl-border: rgba(49, 138, 183, 0.2);
+  --care-hover-border: rgba(49, 138, 183, 0.4);
+  --care-hover-shadow: rgba(49, 138, 183, 0.1);
+}
+
+.care-card-cat {
+  --care-accent: #C88A00;
+  --care-icon-bg: rgba(254, 202, 54, 0.22);
+  --care-item-icon: var(--yellow, #FECA36);
+  --care-hl-bg: rgba(254, 202, 54, 0.14);
+  --care-hl-border: rgba(254, 202, 54, 0.4);
+  --care-hover-border: rgba(254, 202, 54, 0.65);
+  --care-hover-shadow: rgba(254, 202, 54, 0.15);
+}
+
+@media (min-width: 992px) {
+  .care-card-pet {
+    --care-accent: #C88A00;
+    --care-icon-bg: rgba(254, 202, 54, 0.22);
+    --care-item-icon: var(--yellow, #FECA36);
+    --care-hl-bg: rgba(254, 202, 54, 0.14);
+    --care-hl-border: rgba(254, 202, 54, 0.4);
+    --care-hover-border: rgba(254, 202, 54, 0.65);
+    --care-hover-shadow: rgba(254, 202, 54, 0.15);
+  }
+
+  .care-card-cat {
+    --care-accent: var(--blue, #318ab7);
+    --care-icon-bg: rgba(49, 138, 183, 0.1);
+    --care-item-icon: var(--blue, #318ab7);
+    --care-hl-bg: rgba(49, 138, 183, 0.06);
+    --care-hl-border: rgba(49, 138, 183, 0.2);
+    --care-hover-border: rgba(49, 138, 183, 0.4);
+    --care-hover-shadow: rgba(49, 138, 183, 0.1);
+  }
+}
+
+.care-card-pet:hover,
+.care-card-cat:hover {
+  transform: translateY(-5px);
+  border-color: var(--care-hover-border);
+  box-shadow: 0 18px 38px var(--care-hover-shadow);
+}
+
+.care-card-pet .care-opt1-icon,
+.care-card-cat .care-opt1-icon {
+  background: var(--care-icon-bg);
+  color: var(--care-accent);
+}
+
+.care-card-pet .care-opt1-tag,
+.care-card-cat .care-opt1-tag {
+  color: var(--care-accent);
+}
+
+.care-card-pet .care-item-icon,
+.care-card-cat .care-item-icon {
+  color: var(--care-item-icon) !important;
+}
+
+.care-card-pet .care-item-highlight,
+.care-card-cat .care-item-highlight {
+  background: var(--care-hl-bg);
+  border-color: var(--care-hl-border);
+}
+
+.care-card-pet .care-dynamic-link,
+.care-card-cat .care-dynamic-link {
+  color: var(--care-accent) !important;
+}
+/* ==========================================================================
    SEÇÃO SOBRE A TIA NINA & BARRAS DINÂMICAS
    ========================================================================== */
 
