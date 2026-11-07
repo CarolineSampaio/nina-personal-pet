@@ -7,12 +7,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* -------------------------------------------------------------------------- */
-
 /*                                    Utils                                   */
-
 /* -------------------------------------------------------------------------- */
 var docReady = function docReady(fn) {
-  // see if DOM is already available
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fn);
   } else {
@@ -38,12 +35,10 @@ var getData = function getData(el, data) {
     return el.dataset[camelize(data)];
   }
 };
-/* ----------------------------- Colors function ---------------------------- */
-
 
 var hexToRgb = function hexToRgb(hexValue) {
   var hex;
-  hexValue.indexOf("#") === 0 ? hex = hexValue.substring(1) : hex = hexValue; // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  hexValue.indexOf("#") === 0 ? hex = hexValue.substring(1) : hex = hexValue;
 
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, function (m, r, g, b) {
@@ -51,8 +46,6 @@ var hexToRgb = function hexToRgb(hexValue) {
   }));
   return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
 };
-/* --------------------------------- Colors --------------------------------- */
-
 
 var colors = {
   primary: "#0091e9",
@@ -135,11 +128,8 @@ var utils = {
   getBreakpoint: getBreakpoint
 };
 /* -------------------------------------------------------------------------- */
-
 /*                                  Detector                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var detectorInit = function detectorInit() {
   var _window = window,
       is = _window.is;
@@ -158,11 +148,10 @@ var detectorInit = function detectorInit() {
   is.windows() && addClass(html, 'windows');
   navigator.userAgent.match('CriOS') && addClass(html, 'chrome');
 };
+
 /*-----------------------------------------------
 |   Top navigation opacity on scroll
 -----------------------------------------------*/
-
-
 var navbarInit = function navbarInit() {
   var Selector = {
     NAVBAR: '[data-navbar-on-scroll]',
@@ -181,7 +170,7 @@ var navbarInit = function navbarInit() {
   var DataKey = {
     NAVBAR_ON_SCROLL: 'navbar-light-on-scroll'
   };
-  var navbar = document.querySelector(Selector.NAVBAR); // responsive nav collapsed
+  var navbar = document.querySelector(Selector.NAVBAR);
 
   navbar.addEventListener('click', function (e) {
     if (e.target.classList.contains('nav-link') && window.innerWidth < utils.getBreakpoint(navbar)) {
@@ -207,11 +196,11 @@ var navbarInit = function navbarInit() {
         backgroundImage = _window$getComputedSt.backgroundImage;
 
     var transition = 'background-color,padding 0.35s ease';
-    navbar.style.backgroundImage = 'none'; // Change navbar background color on scroll
+    navbar.style.backgroundImage = 'none';
 
     window.addEventListener(Events.SCROLL, function () {
       var scrollTop = html.scrollTop;
-      var alpha = scrollTop / windowHeight * 0.1; // Add class on scroll
+      var alpha = scrollTop / windowHeight * 0.1;
 
       navbar.classList.add('backdrop');
 
@@ -223,44 +212,32 @@ var navbarInit = function navbarInit() {
       navbar.style.backgroundColor = "rgba(".concat(colorRgb[0], ", ").concat(colorRgb[1], ", ").concat(colorRgb[2], ", ").concat(alpha, ")");
       navbar.style.backgroundImage = alpha > 0 || utils.hasClass(navbarCollapse, 'show') ? backgroundImage : 'none';
       alpha > 0 || utils.hasClass(navbarCollapse, 'show') ? navbar.classList.add(paddingName) : navbar.classList.remove(paddingName);
-    }); // Toggle bg class on window resize
+    });
 
     utils.resize(function () {
       var breakPoint = utils.getBreakpoint(navbar);
 
       if (window.innerWidth > breakPoint) {
-        navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none'; // navbar.style.transition = 'none';
+        navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none';
       } else if (!utils.hasClass(navbar.querySelector(Selector.NAVBAR_TOGGLER), ClassNames.COLLAPSED)) {
-        // navbar.classList.add(bgClassName);
-        // navbar.classList.add(paddingName);
         navbar.style.backgroundImage = backgroundImage;
-      }
-
-      if (window.innerWidth <= breakPoint) {// navbar.style.transition = utils.hasClass(navbarCollapse, 'show') ? transition : 'none';
       }
     });
     navbarCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
-      navbar.classList.add(bgClassName); // navbar.classList.add(paddingName);
-
+      navbar.classList.add(bgClassName);
       navbar.style.backgroundImage = backgroundImage;
       navbar.style.transition = transition;
     });
     navbarCollapse.addEventListener(Events.HIDE_BS_COLLAPSE, function () {
-      navbar.classList.remove(bgClassName); // navbar.classList.remove(paddingName);
-
+      navbar.classList.remove(bgClassName);
       !html.scrollTop && (navbar.style.backgroundImage = 'none');
-    });
-    navbarCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {// navbar.style.transition = 'none';
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                Scroll To Top                               */
-
 /* -------------------------------------------------------------------------- */
-
-
 var scrollToTop = function scrollToTop() {
   document.querySelectorAll('[data-anchor] > a, [data-scroll-to]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
@@ -277,10 +254,7 @@ var scrollToTop = function scrollToTop() {
       window.location.hash = id;
     });
   });
-}; // /* -------------------------------------------------------------------------- */
-// /*                            Theme Initialization                            */
-// /* -------------------------------------------------------------------------- */
-
+};
 
 /*-----------------------------------------------
 |   Animated Counters
@@ -348,7 +322,6 @@ var couponInit = function couponInit() {
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(code).then(updateButton).catch(function () {
-          // Fallback
           var tempInput = document.createElement('input');
           tempInput.value = code;
           document.body.appendChild(tempInput);
@@ -374,8 +347,8 @@ var couponInit = function couponInit() {
 /*                   Veterinary Degree Dynamic Progress                       */
 /* -------------------------------------------------------------------------- */
 var vetProgressInit = function vetProgressInit() {
-  var startDate = new Date(2024, 0, 1).getTime();   // Jan 1, 2024 (início dos 5 anos)
-  var endDate = new Date(2028, 11, 15).getTime();   // Dez 15, 2028 (formatura 12/2028)
+  var startDate = new Date(2024, 0, 1).getTime();
+  var endDate = new Date(2028, 11, 15).getTime();
   var now = Date.now();
 
   var rawPct = ((now - startDate) / (endDate - startDate)) * 100;
@@ -385,18 +358,15 @@ var vetProgressInit = function vetProgressInit() {
   if (!sobreSection) return;
 
   var triggerAnimation = function () {
-    // Preenche barras de 100%
     document.querySelectorAll('[data-skill-bar]').forEach(function (bar) {
       var val = bar.getAttribute('data-skill-bar') || '100';
       bar.style.width = val + '%';
     });
 
-    // Preenche barras dinâmicas da Veterinária
     document.querySelectorAll('[data-vet-bar]').forEach(function (bar) {
       bar.style.width = clampedPct + '%';
     });
 
-    // Anima números de porcentagem da Veterinária
     document.querySelectorAll('[data-vet-pct]').forEach(function (el) {
       var current = 0;
       var stepTime = 22;

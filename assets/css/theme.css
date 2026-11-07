@@ -1,13 +1,3 @@
-/* -------------------------------------------------------------------------- */
-/*                                 Theme                                      */
-/* -------------------------------------------------------------------------- */
-/* prettier-ignore */
-/* -------------------------------------------------------------------------- */
-/*                                  Utilities                                 */
-/* -------------------------------------------------------------------------- */
-/*-----------------------------------------------
-|   Bootstrap Styles
------------------------------------------------*/
 /*!
  * Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -1369,7 +1359,7 @@ ul {
 }
 
 /*-----------------------------------------------
-|   User Styles
+|   Custom Styles & Hero Adjustments
 -----------------------------------------------*/
 html, body {
   overflow-x: hidden !important;
@@ -1397,7 +1387,6 @@ html, body {
   }
 }
 
-/* Logo responsivo */
 .navbar-logo,
 .navbar-brand img {
   height: 50px;
@@ -1412,17 +1401,13 @@ html, body {
   }
 }
 
-/* Navbar de computador (Fundo Amarelo + Barra Branca nos Nav Items no Hover) */
 @media (min-width: 700px) {
-
-  /* Padrão do Nav Link (sem borda visível por padrão) */
   .navbar .navbar-nav .nav-item .nav-link {
     border-bottom: 3px solid transparent !important;
     padding-bottom: 4px !important;
     transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
-  /* Barra branca surge APENAS no HOVER ou item ativo */
   .navbar .navbar-nav .nav-item .nav-link:hover,
   .navbar .navbar-nav .nav-item .nav-link.active {
     border-bottom-color: #6b4535 !important;
@@ -1430,7 +1415,7 @@ html, body {
   }
 }
 
-/* Fundo da Hero (hero-bg.svg): mantém o padrão original até 1600px, e acima de 1600px evita o corte da curva inferior */
+/* Acima de 1900px evita o corte da curva inferior do hero-bg.svg */
 @media (min-width: 1901px) {
   section#inicio .bg-holder,
   section:first-of-type .bg-holder {
@@ -1452,7 +1437,6 @@ html, body {
   color: var(--blue) !important;
 }
 
-/* Efeito hover sutil para o badge de texto do Google */
 .hover-opacity {
   transition: opacity 0.2s ease;
 }
@@ -1460,7 +1444,9 @@ html, body {
   opacity: 0.75;
 }
 
-/* Estilos dos Divisores em Pincelada Orgânica (Topo e Base) */
+/*-----------------------------------------------
+|   Brush Dividers & Counters
+-----------------------------------------------*/
 .brush-divider {
   position: absolute;
   left: 0;
@@ -1493,7 +1479,6 @@ html, body {
   bottom: -2px;
 }
 
-/* Estilos dos Contadores Animados (Seção Sobre) */
 .counter-section {
   background-color: var(--blue);
 }
@@ -1504,7 +1489,6 @@ html, body {
   opacity: 0.9;
 }
 @media (max-width: 767.98px) {
-  /* Centraliza a imagem da Hero perfeitamente no mobile */
   .hero-img {
     max-width: 380px !important;
     margin-left: 0 !important;
@@ -1513,7 +1497,6 @@ html, body {
   }
 }
 
-/* Fundo da Hero responsivo: hero-bg-mob.svg no mobile e hero-bg.svg no desktop */
 .hero-bg-responsive {
   background-image: url(../img/hero/hero-bg-mob.svg) !important;
 }
@@ -1525,7 +1508,7 @@ html, body {
 }
 
 /*-----------------------------------------------
-|   Footer Styles (Option A)
+|   Footer Styles
 -----------------------------------------------*/
 .footer-logo {
   max-width: 120px;
@@ -1836,7 +1819,7 @@ html, body {
 }
 
 /*-----------------------------------------------
-|   Nina Indica - Section Styles & Colagens
+|   Nina Indica Section Styles
 -----------------------------------------------*/
 .nina-indica-section {
   background-color: var(--yellow, #FECA36);
@@ -1850,7 +1833,6 @@ html, body {
   z-index: 1;
 }
 
-/* Imagem Puminha como elemento decorativo de fundo */
 .nina-indica-puminha-bg {
   position: absolute;
   right: min(0px, calc((100vw - 1900px) / 2));
@@ -1930,7 +1912,6 @@ html, body {
   margin: 0 auto;
 }
 
-/* OPÇÃO 1: Sticker, Polaroid & Scrapbook Collage */
 .scrapbook-card {
   background: #ffffff;
   border-radius: 24px;
@@ -1971,7 +1952,6 @@ html, body {
   box-shadow: 0 20px 42px rgba(49, 138, 183, 0.28);
 }
 
-/* Logos oficiais das marcas nos cards */
 .brand-logo-indica {
   height: 38px;
   max-width: 110px;
@@ -1980,7 +1960,6 @@ html, body {
   margin-bottom: 6px;
 }
 
-/* Fita Adesiva / Washi Tape decorativa */
 .washi-tape {
   position: absolute;
   top: -13px;
@@ -1995,7 +1974,6 @@ html, body {
   z-index: 2;
 }
 
-/* Selo Starburst / Círculo com Pontas */
 .starburst-badge {
   position: absolute;
   top: -18px;
@@ -2041,7 +2019,6 @@ html, body {
   letter-spacing: -0.2px;
 }
 
-/* Versão Ampliada do Selo Starburst */
 .starburst-badge.lg {
   width: 82px;
   height: 82px;
@@ -2074,13 +2051,11 @@ html, body {
   margin-top: 2px;
 }
 
-/* Header do Card com espaçamento para o selo starburst */
 .scrapbook-card-header {
   padding-right: 42px;
   margin-bottom: 8px;
 }
 
-/* Badge em formato de Osso de Cachorro */
 .bone-badge {
   background: #FFF7D6;
   border: 2px dashed #E5A800;
@@ -2099,7 +2074,6 @@ html, body {
   color: #E5A800;
 }
 
-/* Caixa de Cupom Picotada com Botão Copiar */
 .coupon-box {
   background: #F5F9FC;
   border: 2px dashed var(--blue, #318ab7);
@@ -2155,7 +2129,6 @@ html, body {
   box-shadow: 0 3px 10px rgba(49, 138, 183, 0.4) !important;
 }
 
-/* Botão Shopee Achadinhos */
 .btn-shopee-achadinhos {
   background: #EE4D2D;
   color: #ffffff !important;
@@ -2266,6 +2239,7 @@ html, body {
   transform: translateX(4px);
 }
 
+/* No mobile (< 992px), Pet Sitter usa azul e Cat Sitter usa amarelo; no desktop (>= 992px), as cores se invertem para equilibrar a composição com o card amarelo da seção Sobre acima */
 .care-card-pet {
   --care-accent: var(--blue, #318ab7);
   --care-icon-bg: rgba(49, 138, 183, 0.1);
@@ -2341,6 +2315,7 @@ html, body {
 .care-card-cat .care-dynamic-link {
   color: var(--care-accent) !important;
 }
+
 /* ==========================================================================
    SEÇÃO SOBRE A TIA NINA & BARRAS DINÂMICAS
    ========================================================================== */
@@ -2411,7 +2386,6 @@ html, body {
   color: #B88200;
 }
 
-/* Efeito combinado: Bolinha pulsante + Onda de luz (Shimmer) + Patinha na ponta */
 .vet-live-dot {
   width: 7px;
   height: 7px;
@@ -2482,5 +2456,3 @@ html, body {
   0%, 100% { transform: translateY(-50%) scale(1); }
   50% { transform: translateY(-50%) scale(1.15); }
 }
-
-/*# sourceMappingURL=theme.css.map */
