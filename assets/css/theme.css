@@ -1437,6 +1437,18 @@ html, body {
   color: var(--blue) !important;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .hover-opacity {
   transition: opacity 0.2s ease;
 }
@@ -1853,12 +1865,6 @@ html, body {
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1250px) {
-  .nina-indica-puminha-bg {
-    right: -85px;
-  }
-}
-
 @media (min-width: 1420px) and (max-width: 1450px) {
   .nina-indica-puminha-bg {
     right: -100px;
@@ -1878,11 +1884,23 @@ html, body {
   }
 }
 
-@media (max-width: 1199.98px) {
+@media (min-width: 1240.02px) and (max-width: 1250px) {
   .nina-indica-puminha-bg {
-    right: -45px;
-    max-width: 200px;
-    opacity: 0.45;
+    right: -85px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1240px) {
+  .nina-indica-puminha-bg {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .nina-indica-puminha-bg {
+    right: -35px;
+    max-width: 255px;
+    opacity: 1;
   }
 }
 
@@ -2347,6 +2365,24 @@ html, body {
   color: var(--blue, #318ab7);
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.sobre-bio-text {
+  text-align: justify;
+}
+
+@media (min-width: 992px) {
+  .sobre-bio-col {
+    padding-right: 2.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sobre-bio-col {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .sobre-mini-pill {
