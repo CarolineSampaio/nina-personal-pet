@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Substituir pelo domínio oficial após configurar o GitHub Pages:
-# Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml
+Sitemap: https://ninapersonalpet.com.br/sitemap.xml
