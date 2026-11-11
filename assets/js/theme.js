@@ -397,9 +397,61 @@ var vetProgressInit = function vetProgressInit() {
   }
 };
 
+/* -------------------------------------------------------------------------- */
+/*                               Parallax Scroll                              */
+/* -------------------------------------------------------------------------- */
+var parallaxInit = function parallaxInit() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  var indicaSection = document.getElementById('nina-indica');
+  var puminhaBg = document.querySelector('.nina-indica-puminha-bg');
+  if (!indicaSection || !puminhaBg) return;
+
+  var ticking = false;
+
+  var clamp = function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+  };
+
+  var updateParallax = function updateParallax() {
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    if (viewportWidth < 768) {
+      ticking = false;
+      return;
+    }
+
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+    var rect = indicaSection.getBoundingClientRect();
+
+    if (rect.bottom > -150 && rect.top < viewportHeight + 150) {
+      var elementCenter = rect.top + rect.height / 2;
+      var viewportCenter = viewportHeight / 2;
+      var progress = clamp((viewportCenter - elementCenter) / (viewportHeight * 0.55), -1.2, 1.2);
+      var puminhaY = clamp(progress * -75, -65, 60);
+      puminhaBg.style.transform = 'translate3d(0, ' + puminhaY.toFixed(1) + 'px, 0)';
+    }
+
+    ticking = false;
+  };
+
+  var onScroll = function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  updateParallax();
+};
+
 docReady(navbarInit);
 docReady(detectorInit);
 docReady(scrollToTop);
 docReady(counterInit);
 docReady(couponInit);
 docReady(vetProgressInit);
+docReady(parallaxInit);
