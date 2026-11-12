@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const mapElement = document.getElementById("map");
   if (!mapElement) return;
 
-  const centerLat = -23.558184;
-  const centerLng = -46.608520;
+  const pinLat = -23.558836;
+  const pinLng = -46.598363;
+  const centerLat = -23.5625;
+  const centerLng = -46.5990;
 
   // Determina o zoom ideal responsivo (13 para telas >= 768px, 12 para telas < 768px)
   function getResponsiveZoom() {
-    return window.innerWidth < 768 ? 12 : 13;
+    return window.innerWidth < 768 ? 12 : 12.5;
   }
 
   // Inicializa o mapa com zoom responsivo
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Raio de atendimento ajustado para 4km com as cores da marca
   const coverageCircle = L.circle([centerLat, centerLng], {
-    radius: 3500,
+    radius: 3900,
     color: "#318ab7",
     fillColor: "#318ab7",
     fillOpacity: 0.14,
@@ -94,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     popupAnchor: [0, -38],
   });
 
-  const marker = L.marker([centerLat, centerLng], { icon: petIcon }).addTo(map);
+  const marker = L.marker([pinLat, pinLng], { icon: petIcon }).addTo(map);
 
   marker.bindPopup(`
     <div style="font-family: Poppins, sans-serif; font-size: 13px; text-align: center; padding: 4px 2px;">

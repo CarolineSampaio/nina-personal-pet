@@ -1735,7 +1735,7 @@ html, body {
 |   Map & Location Section Styles
 -----------------------------------------------*/
 .map-container-card {
-  height: 440px;
+  height: 500px;
   width: 100%;
   border-radius: 24px;
   overflow: hidden;
@@ -2057,6 +2057,11 @@ html, body {
   box-shadow: 0 8px 24px rgba(49, 138, 183, 0.55);
 }
 
+.starburst-badge.lg.petlove {
+  background: #765EB9;
+  box-shadow: 0 8px 24px rgba(118, 94, 185, 0.55);
+}
+
 .starburst-badge.lg.shopee {
   background: #EE4D2D;
   box-shadow: 0 8px 24px rgba(238, 77, 45, 0.55);
@@ -2169,6 +2174,29 @@ html, body {
   background: #D73211;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(238, 77, 45, 0.45);
+}
+
+.btn-petlove-indica {
+  background: #765EB9;
+  color: #ffffff !important;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(118, 94, 185, 0.35);
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.btn-petlove-indica:hover {
+  background: #624AA5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(118, 94, 185, 0.48);
 }
 
 /* ==========================================================================
